@@ -6,17 +6,14 @@
         <div v-for="tugasSaya in tugas" v-bind:key="tugasSaya.id" class="tugas">
          
           <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-  <label class="form-check-label" for="flexCheckDefault">
-    {{tugasSaya.nama}}
-  </label>
-</div>
+              <ItemTugas v-bind:tugasSaya="tugasSaya"/>
+          </div>
         </div>     
     </div>
 </template>
 
 <script>
-
+import ItemTugas from "./components/ItemTugas";
 export default {
   name: 'App',
   data:function() {
@@ -30,7 +27,7 @@ export default {
       {
       id:2,
       nama: "Membersihkan Kasur",
-      isDone: false
+      isDone: true
     },
       {
       id:3,
@@ -39,8 +36,10 @@ export default {
     },
     ]
   });
+  },
+  components: {
+      ItemTugas
   }
-  
 }
 </script>
 
@@ -52,5 +51,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.item-completed{
+  color: #1abc1a;
 }
 </style>
